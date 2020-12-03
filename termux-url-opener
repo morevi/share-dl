@@ -1,0 +1,30 @@
+default="1"
+directorio="/data/data/com.termux/files/home/storage/shared/Youtube"
+
+echo 'URL: '$1
+echo 'Elige tu formato!'
+echo '[1] Video (mp4)'
+echo '[2] Audio (mp3)'
+echo '-----------------'
+
+echo "Formato (default=$default): "
+read auvid
+
+if [ -z "$auvid" ]; then
+	auvid=$default
+fi
+
+case $auvid in
+	1) echo 'Descargando como video...';
+		youtube-dl -f best[ext=mp4] $1;;
+	2) echo 'Descargando como audio...';
+		youtube-dl -f bestaudio[ext=m4a] --extract-audio --audio-format mp3 --audio-quality 0 $1;;
+	[1]*) echo 'Descargando como video...';
+		youtube-dl -f best[ext=mp4] $1;;
+	[2]*) echo 'Descargando como audio...';
+		youtube-dl -f bestaudio[ext=m4a] --extract-audio --audio-format mp3 --audio-quality 0 $1;;
+esac
+exit 0
+	
+
+
