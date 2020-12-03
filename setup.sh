@@ -4,7 +4,10 @@ termux-setup-storage
 pkg install python
 pkg install ffmpeg
 pip install youtube-dl
+
 mkdir /data/data/com.termux/files/home/storage/shared/Youtube
 mkdir ~/bin
+cp termux-url-opener ~/bin
+
 mkdir .config/youtube-dl/
-touch .config/youtube-dl/config
+cp ytdl.config .config/youtube-dl
